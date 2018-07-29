@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.personalityquiz.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/app_bg" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/title_bg"
+        android:gravity="center"
+        android:text="@string/screen_1_title"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_above="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitle"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toLeftOf="@+id/imgLogo"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@+id/txtLabelName"
+                android:background="@drawable/edt_bg"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:inputType="textNoSuggestions"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <TextView
+                android:id="@+id/txtLabelName"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:background="@drawable/selection_bg"
+                android:gravity="center"
+                android:text="@string/screen_1_name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <EditText
+                android:textColor="@color/black"
+                android:id="@+id/edtMob"
+                android:layout_width="450dp"
+                android:layout_height="52dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@+id/txtLabelMob"
+                android:background="@drawable/edt_bg"
+                android:ellipsize="end"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/txtLabelMob"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:background="@drawable/selection_bg"
+                android:gravity="center"
+                android:text="@string/screen_1_mob"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="450dp"
+                android:layout_height="42dp"
+                android:textColor="@color/black"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@+id/txtLabelEmail"
+                android:background="@drawable/edt_bg"
+                android:ellipsize="end"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/txtLabelEmail"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:background="@drawable/selection_bg"
+                android:gravity="center"
+                android:text="@string/screen_1_email"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtAge1"
+                android:layout_width="72dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg"
+                android:gravity="center"
+                android:text="18-25"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtAge2"
+                android:layout_width="72dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/btn_bg"
+                android:gravity="center"
+                android:text="26-35"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtAge3"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/btn_bg"
+                android:gravity="center"
+                android:text="36+"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtSubmit"
+                android:layout_width="120dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:background="@drawable/selection_bg"
+                android:gravity="center"
+                android:text="@string/screen_1_age"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/logo" />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/submit_bg"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text=""
+        android:textColor="@color/white" />
+</RelativeLayout>

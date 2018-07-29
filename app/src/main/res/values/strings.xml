@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fern personality test</string>
+
+    <string name="screen_1_title">0</string>
+    <string name="screen_1_name">0</string>
+    <string name="screen_1_mob">0</string>
+    <string name="screen_1_email">0</string>
+    <string name="screen_1_age">0</string>
+
+</resources>
