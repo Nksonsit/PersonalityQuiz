@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         txtLabelName.setText("الاسم");
         txtLabelMob.setText("التليفون المحمول");
         txtLabelEmail.setText("الايميل");
-        txtSubmit.setText("تسجيل البيانات");
+        txtSubmit.setText("الفئة العمريه");
 
         txtTitle.setTypeface(Functions.getRegularFont(MainActivity.this));
         txtLabelName.setTypeface(Functions.getRegularFont(MainActivity.this));

@@ -41,7 +41,7 @@
         android:layout_margin="32dp"
         android:background="@drawable/que_bg"
         android:gravity="top"
-        android:padding="8dp" />
+        android:padding="16dp" />
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/submit_bg"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
