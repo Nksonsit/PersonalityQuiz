@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".AnswerActivity">
 
-    <ImageView
+    <VideoView
+        android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/app_bg" />
+        android:layout_marginTop="23dp" />
 
     <TextView
         android:id="@+id/txtTitle"
@@ -24,22 +25,28 @@
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
-    <TextView
-        android:lines="6"
-        android:id="@+id/txtResult"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnSubmit"
-        android:layout_below="@+id/txtTitle"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginRight="52dp"
-        android:padding="52dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/ans_bg" />
+        android:layout_below="@+id/txtTitle">
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ans_bg"
+            android:gravity="center"
+            android:lines="6"
+            android:padding="52dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnSubmit"

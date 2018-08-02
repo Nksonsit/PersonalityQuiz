@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                User user = new User();
+                User user = (User) getIntent().getSerializableExtra("user");
                 user.setName(edtName.getText().toString().trim());
                 user.setMob(edtMob.getText().toString().trim());
                 user.setEmail(edtEmail.getText().toString().trim());
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tick);
-        txtTitle.setText("تاريخ التسجيل");
+        txtTitle.setText("تسجيل بيانات");
         txtLabelName.setText("الاسم");
         txtLabelMob.setText("التليفون المحمول");
         txtLabelEmail.setText("الايميل");
@@ -107,9 +107,9 @@ public class MainActivity extends AppCompatActivity {
 //        txtAge1.setTypeface(Functions.getRegularFont(MainActivity.this));
 //        txtAge2.setTypeface(Functions.getRegularFont(MainActivity.this));
 //        txtAge3.setTypeface(Functions.getRegularFont(MainActivity.this));
-        edtName.setTypeface(Functions.getRegularFont(MainActivity.this));
+//        edtName.setTypeface(Functions.getRegularFont(MainActivity.this));
 //        edtMob.setTypeface(Functions.getRegularFont(MainActivity.this));
-        edtEmail.setTypeface(Functions.getRegularFont(MainActivity.this));
+//        edtEmail.setTypeface(Functions.getRegularFont(MainActivity.this));
         txtSubmit.setTypeface(Functions.getRegularFont(MainActivity.this));
         btnSubmit.setTypeface(Functions.getRegularFont(MainActivity.this));
 

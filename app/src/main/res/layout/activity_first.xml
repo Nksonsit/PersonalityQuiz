@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/app_bg" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="350dp"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/title_bg"
+        android:gravity="center"
+        android:lines="3"
+        android:paddingBottom="16dp"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp"
+        android:paddingTop="16dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+
+    <EditText
+        android:imeOptions="flagNoExtractUi"
+        android:id="@+id/edtQue"
+        android:lines="5"
+        android:maxLines="5"
+        android:layout_above="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTitle"
+        android:layout_margin="32dp"
+        android:background="@drawable/que_bg"
+        android:gravity="top"
+        android:padding="8dp" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="42dp"
+        android:layout_marginRight="32dp"
+        android:src="@drawable/logo" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/submit_bg"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text=""
+        android:textColor="@color/white" />
+
+</RelativeLayout>

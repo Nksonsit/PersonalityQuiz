@@ -43,6 +43,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:imeOptions="flagNoExtractUi"
                 android:textColor="@color/black"
                 android:id="@+id/edtName"
                 android:layout_width="wrap_content"
@@ -84,6 +85,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:imeOptions="flagNoExtractUi"
                 android:textColor="@color/black"
                 android:id="@+id/edtMob"
                 android:layout_width="match_parent"
@@ -125,6 +127,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:imeOptions="flagNoExtractUi"
                 android:textColor="@color/black"
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
@@ -170,7 +173,7 @@
                 android:layout_width="102dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/btn_bg_selector"
                 android:gravity="center"
                 android:text="18-25"
                 android:textColor="#000000"
@@ -183,7 +186,7 @@
                 android:layout_height="52dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="12dp"
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/btn_bg_selector"
                 android:gravity="center"
                 android:text="26-35"
                 android:textColor="#000000"
@@ -196,7 +199,7 @@
                 android:layout_height="52dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="12dp"
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/btn_bg_selector"
                 android:gravity="center"
                 android:text="36+"
                 android:textColor="#000000"

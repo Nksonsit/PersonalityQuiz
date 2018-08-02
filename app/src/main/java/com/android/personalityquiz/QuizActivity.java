@@ -91,29 +91,11 @@ public class QuizActivity extends AppCompatActivity {
         });
         viewPager.setAdapter(adpter);
 
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (viewPager.getCurrentItem() == list.size() - 1) {
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
 
 
         videoView = (VideoView) findViewById(R.id.videoView);
 
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.bg_video;
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.bg_video1;
         Uri video = Uri.parse(path);
         videoView.setVideoURI(video);
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -131,6 +113,28 @@ public class QuizActivity extends AppCompatActivity {
         params.height = metrics.heightPixels;
         params.leftMargin = 0;
         videoView.setLayoutParams(params);
+
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (viewPager.getCurrentItem() == 6) {
+                    String path = "android.resource://" + getPackageName() + "/" + R.raw.bg_video2;
+                    Uri video = Uri.parse(path);
+                    videoView.setVideoURI(video);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 }

@@ -3,11 +3,20 @@ package com.android.personalityquiz;
 import java.io.Serializable;
 
 public class User implements Serializable{
+    private String Question;
     private String Name;
     private String Mob;
     private String Email;
     private String AgeGroup;
     private String Result;
+
+    public String getQuestion() {
+        return Question;
+    }
+
+    public void setQuestion(String question) {
+        Question = question;
+    }
 
     public String getName() {
         return Name;
