@@ -114,7 +114,7 @@ public class AnswerActivity extends AppCompatActivity {
         data = data + user.getName() + "\n\n\n";
         data = data + user.getMob() + "\n\n\n";
         data = data + user.getEmail() + "\n\n\n";
-        data = data + user.getAgeGroup() + "\n\n\n";
+//        data = data + user.getAgeGroup() + "\n\n\n";
         data = data + user.getResult();
         generateNoteOnSD(AnswerActivity.this, user.getName() + "_" + System.currentTimeMillis() + ".text", data);
     }

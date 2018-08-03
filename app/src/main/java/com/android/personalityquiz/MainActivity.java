@@ -75,16 +75,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "الرجاء إدخال معرف البريد الإلكتروني الصحيح", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (ageGroup == null || ageGroup.trim().length() == 0) {
-                    Toast.makeText(MainActivity.this, "يرجى تحديد الفئة العمرية", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 User user = (User) getIntent().getSerializableExtra("user");
                 user.setName(edtName.getText().toString().trim());
                 user.setMob(edtMob.getText().toString().trim());
                 user.setEmail(edtEmail.getText().toString().trim());
-                user.setAgeGroup(ageGroup);
 
                 Intent intent = new Intent(MainActivity.this, IntroVideoActivity.class);
                 intent.putExtra("user", user);
