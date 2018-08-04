@@ -2,18 +2,29 @@ package com.android.personalityquiz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.SoundEffectConstants;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.VideoView;
+
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.BandwidthMeter;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DataSpec;
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.RawResourceDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +38,9 @@ public class QuizActivity extends AppCompatActivity {
     private User user;
     private boolean isNextBtnAvailable = false;
     private MediaPlayer mMediaPlayer;
-    private VideoView videoView;
+
+    SimpleExoPlayerView videoView;
+    SimpleExoPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,30 +104,7 @@ public class QuizActivity extends AppCompatActivity {
         });
         viewPager.setAdapter(adpter);
 
-
-
-        videoView = (VideoView) findViewById(R.id.videoView);
-
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.bg_video1;
-        Uri video = Uri.parse(path);
-        videoView.setVideoURI(video);
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-                videoView.start();
-            }
-        });
-
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
-        params.width = metrics.widthPixels;
-        params.height = metrics.heightPixels;
-        params.leftMargin = 0;
-        videoView.setLayoutParams(params);
-
-
+        loadPlayer(R.raw.bg_video1);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -124,9 +114,8 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 if (viewPager.getCurrentItem() == 6) {
-                    String path = "android.resource://" + getPackageName() + "/" + R.raw.bg_video2;
-                    Uri video = Uri.parse(path);
-                    videoView.setVideoURI(video);
+
+                    loadPlayer(R.raw.bg_video2);
                 }
             }
 
@@ -136,5 +125,77 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    void loadPlayer(int raw) {
+        videoView = (SimpleExoPlayerView) findViewById(R.id.videoView);
+
+        try {
+
+            if (player != null) {
+                player.stop();
+                player.release();
+            }
+
+            BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+            TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
+            TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+
+            player = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
+            videoView.setPlayer(player);
+            videoView.setUseController(false);
+
+            DataSpec dataSpec = new DataSpec(RawResourceDataSource.buildRawResourceUri(raw));
+            final RawResourceDataSource rawResourceDataSource = new RawResourceDataSource(this);
+            rawResourceDataSource.open(dataSpec);
+            DataSource.Factory factory = new DataSource.Factory() {
+                @Override
+                public DataSource createDataSource() {
+                    return rawResourceDataSource;
+                }
+            };
+
+            MediaSource videoSource = new ExtractorMediaSource(rawResourceDataSource.getUri(), factory, new DefaultExtractorsFactory(), null, null);
+            player.setRepeatMode(Player.REPEAT_MODE_ONE);
+            player.prepare(videoSource);
+
+            DisplayMetrics metrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
+            params.width = metrics.widthPixels;
+            params.height = metrics.heightPixels;
+            params.leftMargin = 0;
+            videoView.setLayoutParams(params);
+
+        } catch (RawResourceDataSource.RawResourceDataSourceException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (player != null) {
+            player.setPlayWhenReady(true);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (player != null) {
+            player.stop();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (player != null) {
+            player.release();
+        }
     }
 }

@@ -16,8 +16,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".IntroVideoActivity"
             android:screenOrientation="landscape"

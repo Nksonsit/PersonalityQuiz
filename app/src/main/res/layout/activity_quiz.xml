@@ -14,11 +14,12 @@
         android:src="@drawable/app_bg"
         android:visibility="gone" />
 
-    <VideoView
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="23dp" />
+        android:layout_marginTop="23dp"
+        app:resize_mode="fill" />
 
     <com.android.personalityquiz.NonSwipeableViewPager
         android:id="@+id/viewPager"

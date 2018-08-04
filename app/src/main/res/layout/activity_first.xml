@@ -30,17 +30,17 @@
 
 
     <EditText
-        android:imeOptions="flagNoExtractUi"
         android:id="@+id/edtQue"
-        android:lines="5"
-        android:maxLines="5"
-        android:layout_above="@+id/imgLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/imgLogo"
         android:layout_below="@+id/txtTitle"
         android:layout_margin="32dp"
         android:background="@drawable/que_bg"
         android:gravity="top"
+        android:imeOptions="flagNoExtractUi"
+        android:lines="5"
+        android:maxLines="5"
         android:padding="16dp" />
 
     <ImageView
